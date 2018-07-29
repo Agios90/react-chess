@@ -17,8 +17,12 @@ export default class Game extends React.Component {
       <div className='view row'>
         <div className='column column-50'>
           <div id='game-board'></div>
+          <blockquote className='board-text'>
+            <h5 className='turn'>{ this.state.turnText }</h5>
+            <h5 className='status'>{ this.state.statusText }</h5>
+          </blockquote>
         </div>
-        <div className='column column-50'>
+        {/* <div className='column column-50'>
           <div className="links">
             <div>Player 1: <a target="_blank" href={domain() + "/#/" + this.state.p1_token}>{domain()}/#/{this.state.p1_token}</a></div>
             <div>Player 2: <a target="_blank" href={domain() + "/#/" + this.state.p2_token}>{domain()}/#/{this.state.p2_token}</a></div>
@@ -28,7 +32,7 @@ export default class Game extends React.Component {
             <h5 className='status'>{ this.state.statusText }</h5>
           </blockquote>
           <p className='history'>{ history(this.state.moves) }</p>
-        </div>
+        </div> */}
       </div>
     );
   }

@@ -70,15 +70,15 @@ function toClipboardBlack() {
 }
 
 function enterGame(value) {
-  window.location.replace(`http://localhost:8080/chess/enterGame?value=${value}`);
+  window.location.replace(`http://51.15.98.160:8080/chess/enterGame?value=${value}`);
 }
 
 function enterGameAsWhite() {
-  window.location.replace(`http://localhost:8080/chess/RegisterGame?playerColor=WHITE&wtoken=${newGame.p1_token}&btoken=${newGame.p2_token}`);
+  window.location.replace(`http://51.15.98.160:8080/chess/RegisterGame?playerColor=WHITE&wtoken=${newGame.p1_token}&btoken=${newGame.p2_token}`);
 }
 
 function enterGameAsBlack() {
-  window.location.replace(`http://localhost:8080/chess/RegisterGame?playerColor=BLACK&wtoken=${newGame.p1_token}&btoken=${newGame.p2_token}`);
+  window.location.replace(`http://51.15.98.160:8080/chess/RegisterGame?playerColor=BLACK&wtoken=${newGame.p1_token}&btoken=${newGame.p2_token}`);
 }
 
 function createGame() {

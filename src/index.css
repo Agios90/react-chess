@@ -2,10 +2,42 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-image: url("../images/bg1.jpg");
+  /* background-image: url("../images/bg1.jpg"); */
 }
 
 .container {
   height:100vh; 
   width:100vh;
+}
+
+input {
+  background-color: #fff !important;
+}
+
+button:hover {
+  background-color: #ac5edb
+}
+
+.cont {
+  margin-top: 45%;
+}
+
+
+.tokens {
+  border-radius: 15px;
+  display: none;
+  padding:1rem;
+  margin-bottom: 1rem;
+  background-color: black;
+  opacity:0.5;
+  color:white;
+  transition: 0.3s;
+}
+
+.tokens:hover {
+  opacity:0.7;
+}
+
+input {
+  color: #000;
 }

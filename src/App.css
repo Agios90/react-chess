@@ -25,6 +25,12 @@ body {
   margin-top:50%;
 }
 
+#whiteWin, #blackWin {
+  position:relative;
+  left:50%;
+  display:none;
+}
+
 .board-text {
   position: relative;
   left:50%;

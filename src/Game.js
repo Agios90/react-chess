@@ -10,6 +10,8 @@ export default class Game extends React.Component {
     super();
     this.state = { token };
     this.engine = new Chess();
+    this.onWhiteWin = this.onWhiteWin.bind(this);
+    this.onBlackWin = this.onBlackWin.bind(this);
   }
 
   render() {
@@ -21,6 +23,8 @@ export default class Game extends React.Component {
             <h5 className='turn'>{ this.state.turnText }</h5>
             <h5 className='status'>{ this.state.statusText }</h5>
           </blockquote>
+          <button id="whiteWin" onClick={this.onWhiteWin}> Continue </button>
+          <button id="blackWin" onClick={this.onBlackWin}> Continue </button>
         </div>
         {/* <div className='column column-50'>
           <div className="links">
@@ -35,6 +39,14 @@ export default class Game extends React.Component {
         </div> */}
       </div>
     );
+  }
+
+  onWhiteWin() {
+    window.location.replace(`http://localhost:8080np/chess/registerWinner?winner=WHITE&wtoken=${this.state.p1_token}`);
+  }
+
+  onBlackWin() {
+    window.location.replace(`http://localhost:8080/chess/registerWinner?winner=BLACK&wtoken=${this.state.p1_token}`)
   }
 
   componentDidMount() {
@@ -112,9 +124,9 @@ export default class Game extends React.Component {
   }
 }
 
-function history(moves = []) {
-  return moves.map((m, idx) => <span key={m}>{idx + 1}) {m}</span>);
-}
+// function history(moves = []) {
+//   return moves.map((m, idx) => <span key={m}>{idx + 1}) {m}</span>);
+// }
 
 function listenForUpdates(token, cb) {
   const db = firebase.database().ref("/games");
@@ -142,14 +154,14 @@ function games(id) {
     .ref(`/games/${id}`);
 }
 
-function domain() {
-  const { hostname, port } = window.location;
-  if (port) {
-    return `http://${hostname}:${port}`;
-  } else {
-    return `http://${hostname}`;
-  }
-}
+// function domain() {
+//   const { hostname, port } = window.location;
+//   if (port) {
+//     return `http://${hostname}:${port}`;
+//   } else {
+//     return `http://${hostname}`;
+//   }
+// }
 
 function pushMove(moves, move) {
   if (!moves) {
@@ -193,8 +205,12 @@ function turnText(playerNum, isMyTurn) {
 
 function statusText(turn, in_mate, in_draw, in_check) {
   const moveColor = turn === 'b' ? "Black" : "White";
-  if (in_mate)
+  if (in_mate) {
+    let btn_id = turn === 'w' ? "blackWin" : "whiteWin";
+    let btn = document.getElementById(btn_id);
+    btn.style.display = "block";
     return `Game Over, ${moveColor} is in checkmate`;
+  }
   else if (in_draw)
     return 'Game over, drawn position';
   else if (in_check)

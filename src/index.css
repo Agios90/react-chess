@@ -22,20 +22,19 @@ button:hover {
   margin-top: 45%;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
 .tokens {
   border-radius: 15px;
   display: none;
   padding:1rem;
   margin-bottom: 1rem;
-  background-color: black;
-  opacity:0.5;
-  color:white;
-  transition: 0.3s;
-}
-
-.tokens:hover {
-  opacity:0.7;
+  background-color: #ddd;
+  color:black;
+  animation: fadeIn 0.2s ease-in;
 }
 
 input {

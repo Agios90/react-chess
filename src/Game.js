@@ -42,11 +42,11 @@ export default class Game extends React.Component {
   }
 
   onWhiteWin() {
-    window.location.replace(`http://51.15.98.160:8080/chess/registerWinner?winner=WHITE&wtoken=${this.state.p1_token}`);
+    window.location.replace(`http://51.15.98.160/chess/registerWinner?winner=WHITE&wtoken=${this.state.p1_token}`);
   }
 
   onBlackWin() {
-    window.location.replace(`http://51.15.98.160:8080/chess/registerWinner?winner=BLACK&wtoken=${this.state.p1_token}`)
+    window.location.replace(`http://51.15.98.160/chess/registerWinner?winner=BLACK&wtoken=${this.state.p1_token}`)
   }
 
   componentDidMount() {
